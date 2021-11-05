@@ -30,7 +30,7 @@ int set_element(element* A, element** pA, int I, int J, int value) {
 
         while (i < I + 2) {
 
-            if (i == I) {//ñóùåñòâóåò íåîáõîäèìàÿ  ñòðîêà
+            if (i == I) {//Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã² Ã­Ã¥Ã®Ã¡ÃµÃ®Ã¤Ã¨Ã¬Ã Ã¿  Ã±Ã²Ã°Ã®ÃªÃ 
                 p_column_tmp = p_str_tmp;
                 column_tmp = *p_column_tmp;
                 
@@ -107,7 +107,7 @@ int set_element(element* A, element** pA, int I, int J, int value) {
                 (*p_str_I).set_prev_e(nullptr);
                 return 0;
             }
-            if ((*p_str_tmp).get_next_s() == nullptr) {//äîïèñûâàíèå íîâîé ñòðîêè â êîíåö
+            if ((*p_str_tmp).get_next_s() == nullptr) {//Ã¤Ã®Ã¯Ã¨Ã±Ã»Ã¢Ã Ã­Ã¨Ã¥ Ã­Ã®Ã¢Ã®Ã© Ã±Ã²Ã°Ã®ÃªÃ¨ Ã¢ ÃªÃ®Ã­Ã¥Ã¶
                 p_str_I = new element();
                 //             str_I = *p_str_I;
                 (*p_str_I).set_i(I);
@@ -151,7 +151,7 @@ int scan_matrix_from_file(element* A) {
             if (fscanf(inp, "%d", &tmp) != 0) {
                 if (tmp != 0) {
                     if (flag == 0) {
-                        A->set_j(i);
+                        A->set_i(i);
                         A->set_j(j);
                         A->set_value(tmp);
                         flag = 1;
@@ -306,7 +306,7 @@ int get_value_i_g(element* A, int I, int J) {
 
         while (i < I + 1) {
 
-            if (i == I) {//ñóùåñòâóåò íåîáõîäèìàÿ  ñòðîêà
+            if (i == I) {//Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã² Ã­Ã¥Ã®Ã¡ÃµÃ®Ã¤Ã¨Ã¬Ã Ã¿  Ã±Ã²Ã°Ã®ÃªÃ 
                 p_column_tmp = p_str_tmp;
                 column_tmp = *p_column_tmp;
                 while (j < J + 1) {
@@ -374,8 +374,8 @@ int exchange_of_string(element** pA, int I1, int I2 ) {
     }
 
 
-    if (p_str_I1 != nullptr && p_str_I2 != nullptr) {//åñëè îáå ñòðîêè ñóùåñòâóþò
-        //íà ìåñòî I2 ñòàâèì I1
+    if (p_str_I1 != nullptr && p_str_I2 != nullptr) {//Ã¥Ã±Ã«Ã¨ Ã®Ã¡Ã¥ Ã±Ã²Ã°Ã®ÃªÃ¨ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¾Ã²
+        //Ã­Ã  Ã¬Ã¥Ã±Ã²Ã® I2 Ã±Ã²Ã Ã¢Ã¨Ã¬ I1
         
         if ((*p_str_I2).get_next_e() != nullptr) {
             (*(*p_str_I2).get_next_e()).set_prev_e(p_str_I1);
@@ -401,8 +401,8 @@ int exchange_of_string(element** pA, int I1, int I2 ) {
     }
     if (p_str_I1 != nullptr && p_str_I2 == nullptr) {
               
-        set_element(*pA, pA, I2, 1, 1);             //ñîçäàëè ñòðîêó ñ íîìåðîì I2
-        p_str_I2 = pointer_on_i_string(*pA, I2);//íàøëè íà íå¸ óêàçàòåëü
+        set_element(*pA, pA, I2, 1, 1);             //Ã±Ã®Ã§Ã¤Ã Ã«Ã¨ Ã±Ã²Ã°Ã®ÃªÃ³ Ã± Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬ I2
+        p_str_I2 = pointer_on_i_string(*pA, I2);//Ã­Ã Ã¸Ã«Ã¨ Ã­Ã  Ã­Ã¥Â¸ Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¼
         
         if ((*p_str_I1).get_next_e() != nullptr) {
             (*(*p_str_I1).get_next_e()).set_prev_e(p_str_I2);
@@ -420,13 +420,13 @@ int exchange_of_string(element** pA, int I1, int I2 ) {
             ((*p_str_I1).get_prev_s())->set_next_s((*p_str_I1).get_next_s());
             return 0;
         }
-        ((*p_str_I1).get_prev_s())->set_next_s((*p_str_I1).get_next_s());//ñøèëè ñïèñîê íà ìåñòå I1
+        ((*p_str_I1).get_prev_s())->set_next_s((*p_str_I1).get_next_s());//Ã±Ã¸Ã¨Ã«Ã¨ Ã±Ã¯Ã¨Ã±Ã®Ãª Ã­Ã  Ã¬Ã¥Ã±Ã²Ã¥ I1
         ((*p_str_I1).get_next_s())->set_prev_s((*p_str_I1).get_prev_s());
     }
     if (p_str_I2 != nullptr && p_str_I1 == nullptr) {
 
-        set_element(*pA, pA, I1, 1, 1);             //ñîçäàëè ñòðîêó ñ íîìåðîì I1
-        p_str_I1 = pointer_on_i_string(*pA, I1);//íàøëè íà íå¸ óêàçàòåëü
+        set_element(*pA, pA, I1, 1, 1);             //Ã±Ã®Ã§Ã¤Ã Ã«Ã¨ Ã±Ã²Ã°Ã®ÃªÃ³ Ã± Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬ I1
+        p_str_I1 = pointer_on_i_string(*pA, I1);//Ã­Ã Ã¸Ã«Ã¨ Ã­Ã  Ã­Ã¥Â¸ Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¼
 
         if ((*p_str_I2).get_next_e() != nullptr) {
             (*(*p_str_I2).get_next_e()).set_prev_e(p_str_I1);
@@ -444,7 +444,7 @@ int exchange_of_string(element** pA, int I1, int I2 ) {
             ((*p_str_I2).get_prev_s())->set_next_s((*p_str_I2).get_next_s());
             return 0;
         }
-        ((*p_str_I2).get_prev_s())->set_next_s((*p_str_I2).get_next_s());//ñøèëè ñïèñîê íà ìåñòå I1
+        ((*p_str_I2).get_prev_s())->set_next_s((*p_str_I2).get_next_s());//Ã±Ã¸Ã¨Ã«Ã¨ Ã±Ã¯Ã¨Ã±Ã®Ãª Ã­Ã  Ã¬Ã¥Ã±Ã²Ã¥ I1
         ((*p_str_I2).get_next_s())->set_prev_s((*p_str_I2).get_prev_s());
     }
 
@@ -476,7 +476,7 @@ element* pointer_on_i_string(element* A, int I){
         element* p_str_tmp = A;
         
         while (i < I + 1) {
-            if (i == I) {//ñóùåñòâóåò íåîáõîäèìàÿ  ñòðîêà
+            if (i == I) {//Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã² Ã­Ã¥Ã®Ã¡ÃµÃ®Ã¤Ã¨Ã¬Ã Ã¿  Ã±Ã²Ã°Ã®ÃªÃ 
                 return p_str_tmp;
             }
             p_str_tmp = (*p_str_tmp).get_next_s();
@@ -490,9 +490,9 @@ element* pointer_on_i_string(element* A, int I){
     return nullptr;
 }
 
-int lin_comb_of_str(element** pA, int I1, int I2, int a) {//íå çàáûòü îáðàáîòàòü ñëó÷àé èñ÷åçíîâåíèÿ ñòðîê
-    // I1 ñ÷èòàåòñÿ èçìåíÿåìîé ñòðîêîé
-    // I2 - ïðèáàâëÿåìàÿ
+int lin_comb_of_str(element** pA, int I1, int I2, int a) {//Ã­Ã¥ Ã§Ã Ã¡Ã»Ã²Ã¼ Ã®Ã¡Ã°Ã Ã¡Ã®Ã²Ã Ã²Ã¼ Ã±Ã«Ã³Ã·Ã Ã© Ã¨Ã±Ã·Ã¥Ã§Ã­Ã®Ã¢Ã¥Ã­Ã¨Ã¿ Ã±Ã²Ã°Ã®Ãª
+    // I1 Ã±Ã·Ã¨Ã²Ã Ã¥Ã²Ã±Ã¿ Ã¨Ã§Ã¬Ã¥Ã­Ã¿Ã¥Ã¬Ã®Ã© Ã±Ã²Ã°Ã®ÃªÃ®Ã©
+    // I2 - Ã¯Ã°Ã¨Ã¡Ã Ã¢Ã«Ã¿Ã¥Ã¬Ã Ã¿
     int I = 0;
     int m = 0;
     int n = 0;
@@ -536,10 +536,10 @@ int lin_comb_of_str(element** pA, int I1, int I2, int a) {//íå çàáûòü îáðàáîòàòü
     }
 
 
-    if (p_str_I1 != nullptr && p_str_I2 != nullptr) {//åñëè îáå ñòðîêè ñóùåñòâóþò
+    if (p_str_I1 != nullptr && p_str_I2 != nullptr) {//Ã¥Ã±Ã«Ã¨ Ã®Ã¡Ã¥ Ã±Ã²Ã°Ã®ÃªÃ¨ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¾Ã²
         col_I1 = p_str_I1;
         col_I2 = p_str_I2;
-        int J1 = col_I1->get_j();//áåãóùèå èíäåêñû äëÿ ñòîëáöîâ ñëîãàåìûõ ñòðîê
+        int J1 = col_I1->get_j();//Ã¡Ã¥Ã£Ã³Ã¹Ã¨Ã¥ Ã¨Ã­Ã¤Ã¥ÃªÃ±Ã» Ã¤Ã«Ã¿ Ã±Ã²Ã®Ã«Ã¡Ã¶Ã®Ã¢ Ã±Ã«Ã®Ã£Ã Ã¥Ã¬Ã»Ãµ Ã±Ã²Ã°Ã®Ãª
         int J2 = col_I2->get_j();
 
 
@@ -562,7 +562,7 @@ int lin_comb_of_str(element** pA, int I1, int I2, int a) {//íå çàáûòü îáðàáîòàòü
                                     if ((*p_str_I1).get_prev_s()!=nullptr) {
                                         ((*p_str_I1).get_prev_s())->set_next_s((*p_str_I1).get_next_s());
                                     }
-                                    //ñøèëè ñïèñîê íà ìåñòå I1
+                                    //Ã±Ã¸Ã¨Ã«Ã¨ Ã±Ã¯Ã¨Ã±Ã®Ãª Ã­Ã  Ã¬Ã¥Ã±Ã²Ã¥ I1
                                     if ((*p_str_I1).get_next_s() != nullptr) {
                                         ((*p_str_I1).get_next_s())->set_prev_s((*p_str_I1).get_prev_s());
                                     }
@@ -589,7 +589,7 @@ int lin_comb_of_str(element** pA, int I1, int I2, int a) {//íå çàáûòü îáðàáîòàòü
                             }
                         }
                         else {
-                            ((*col_I1).get_prev_e())->set_next_e((*col_I1).get_next_e());//ñøèëè ñòðîêó
+                            ((*col_I1).get_prev_e())->set_next_e((*col_I1).get_next_e());//Ã±Ã¸Ã¨Ã«Ã¨ Ã±Ã²Ã°Ã®ÃªÃ³
                             if((*col_I1).get_next_e() != nullptr){
                                 ((*col_I1).get_next_e())->set_prev_e((*col_I1).get_prev_e());
                             }
@@ -636,8 +636,8 @@ int lin_comb_of_str(element** pA, int I1, int I2, int a) {//íå çàáûòü îáðàáîòàòü
     
     if (p_str_I1 == nullptr && p_str_I2 != nullptr) {
 
-        set_element(*pA, pA, I1, 1, 0);             //ñîçäàëè ñòðîêó ñ íîìåðîì I1
-        p_str_I1 = pointer_on_i_string(*pA, I1);//íàøëè íà íå¸ óêàçàòåëü
+        set_element(*pA, pA, I1, 1, 0);             //Ã±Ã®Ã§Ã¤Ã Ã«Ã¨ Ã±Ã²Ã°Ã®ÃªÃ³ Ã± Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬ I1
+        p_str_I1 = pointer_on_i_string(*pA, I1);//Ã­Ã Ã¸Ã«Ã¨ Ã­Ã  Ã­Ã¥Â¸ Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¼
 
         lin_comb_of_str(pA, I1, I2, a);
     }
@@ -664,7 +664,7 @@ int sum_el_in_str(element* A, int I, int J1, int J2) {
        
         i = str_I->get_i();
         while (i < I + 1) {
-            if (i == I) {//ñóùåñòâóåò íåîáõîäèìàÿ  ñòðîêà
+            if (i == I) {//Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã² Ã­Ã¥Ã®Ã¡ÃµÃ®Ã¤Ã¨Ã¬Ã Ã¿  Ã±Ã²Ã°Ã®ÃªÃ 
                 col_j = str_I;              
                 while (j < J2 + 1) {
                     j = col_j->get_j();
