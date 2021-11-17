@@ -15,3 +15,5 @@ element* pointer_on_i_string(element* A, int I);
 int lin_comb_of_str(element** pA, int I1, int I2, int a);
 int sum_el_in_str(element* A, int I, int J1, int J2);
 int submatrix(element* A, int I1, int I2, int J1, int J2);
+void free_element_memory(element* a);
+void free_list_memory(element* A);
