@@ -79,7 +79,6 @@ element* element::get_prev_s() {
 }
 
 element::~element() {
-//	delete this;
 }
 
 int such_size_matrix(element* A, int* m, int* n) {
