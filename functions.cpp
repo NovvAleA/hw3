@@ -780,3 +780,34 @@ int submatrix(element* A,  int I1, int I2, int J1, int J2) {
  //   scan_matrix_from_file(B, "tmp.txt");
     return 0;
 }
+
+
+void free_element_memory(element* a) {
+    delete a;
+}
+
+void free_list_memory(element* A) {
+    int tmp = 1;
+    element* str_tmp;
+    str_tmp = A;
+    element* col_tmp;
+    col_tmp = A;
+
+    while (str_tmp != nullptr) {
+        if (str_tmp->get_prev_s() != nullptr) {
+            free_element_memory(str_tmp->get_prev_s());
+        }
+        col_tmp = str_tmp;
+        while ((*col_tmp).get_next_e() != nullptr) {
+            col_tmp = (*col_tmp).get_next_e();
+            if (col_tmp->get_prev_e()->get_prev_s() == nullptr) {
+                if (col_tmp->get_prev_e()->get_next_s() == nullptr) {
+                    if (col_tmp->get_prev_e() != nullptr) {
+                        free_element_memory(col_tmp->get_prev_e());
+                    }                 
+                }
+            }
+        }
+        str_tmp = (*str_tmp).get_next_s();    
+    }
+}
