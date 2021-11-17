@@ -24,6 +24,10 @@ int AT() {
             }
         }
     }
+    
+    free_list_memory(A);
+    free_list_memory(B);
+    
     return 0;
 }
 
@@ -163,6 +167,6 @@ int main()
         break;
     }
  
- 
+    free_list_memory(A);
     return 0;
 }
